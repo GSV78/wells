@@ -1,33 +1,27 @@
-import { Dispatch } from 'react';
-import { Action } from 'redux';
-import { getLibFromServer } from '../api/api';
+import { addNewItem, getLibFromServer } from '../api/api';
+import { ValuesType } from '../components/AddMaterials';
+import { DispatchType } from './store';
 
 //action.types
 const GET_LIB_SUCCESS: string = 'wells/libReducer/get_lib_success';
 
-//initialState
-// type initialStateType = {
-//   initialStateMaterials: Array<{id: number, name: string, price: number, unit: string} | null>
-//   initialStateWorks: Array<{id: number, name: string, price: number, unit: string} | null>
-// }
+export type LibItemType = { id: number, name: string, price: number, unit: string, category: 'material' | 'work' }
 
-type MaterialsFndWorksType = { id: number, name: string, price: number, unit: string } | null
+let initialState: Array<LibItemType> = []
 
-let materials: Array<MaterialsFndWorksType> = []
-let works: Array<MaterialsFndWorksType> = []
-let initialState = { materials, works }
 export type InitialStateType = typeof initialState
 
 
 //Reducer
-const libReducer = (state = initialState, action: getLibSuccessACType) => {
+type ACType = {
+  type: typeof GET_LIB_SUCCESS
+  payload?: InitialStateType
+}
+
+const libReducer = (state = initialState, action: ACType) => {
   switch (action.type) {
     case GET_LIB_SUCCESS: {
-      return {
-        ...state,
-        materials: action.payload.materials,
-        works: action.payload.works,
-      };
+      return action.payload
     }
     default:
       return state;
@@ -35,21 +29,18 @@ const libReducer = (state = initialState, action: getLibSuccessACType) => {
 };
 
 //ActionCreators
-type getLibSuccessACType = {
-  type: typeof GET_LIB_SUCCESS
-  payload: InitialStateType
-}
-const getLibSuccess = (payload: InitialStateType): getLibSuccessACType => ({ type: GET_LIB_SUCCESS, payload });
+const getLibSuccess = (payload: InitialStateType): ACType => ({ type: GET_LIB_SUCCESS, payload });
 
 //ThunkCreators
 
-// export const getDB = () => (dispatch: any) => {
-//     debugger
-//     getLibFromServer()
-//     .then((data: any) => dispatch(getLibSuccess(data)))
-// };
 export const getDB = () => async (dispatch: any) => {
   const data: InitialStateType = await getLibFromServer()
+  dispatch(getLibSuccess(data))
+};
+export const addItem = ({ ...values }: ValuesType) => async (dispatch: any) => {
+  const data: InitialStateType = await addNewItem(values)
+  console.log(data);
+  dispatch(getDB())
   dispatch(getLibSuccess(data))
 };
 

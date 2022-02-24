@@ -1,44 +1,60 @@
-{"lib":{
-    "materials": [
-      {
-        "id": 1,
-        "name": "Кольцо 1м",
-        "price": 1000,
-        "unit": "шт"
-      },
-      {
-        "id": 2,
-        "name": "Кольцо 1,5м",
-        "price": 2000,
-        "unit": "шт"
-      },
-      {
-        "id": 3,
-        "name": "Кольцо 2м",
-        "price": 3000,
-        "unit": "шт"
-      }
-    ],
-    "works":[
-      {
-        "id": 1,
-        "name": "Копка кольца 1м",
-        "price": 2000,
-        "unit": "шт"
-      },
-      {
-        "id": 2,
-        "name": "Копка кольца 1м",
-        "price": 4000,
-        "unit": "шт"
-      },
-      {
-        "id": 3,
-        "name": "Копка кольца 1м",
-        "price": 6000,
-        "unit": "шт"
-      }
-      
-    ]
-  }
-  }
+{
+  "lib": [
+    {
+      "name": "Кольцо 1м",
+      "price": 1000,
+      "unit": "шт",
+      "category": "material",
+      "id": 1
+    },
+    {
+      "name": "Кольцо 1,5м",
+      "price": 2000,
+      "unit": "шт",
+      "category": "material",
+      "id": 2
+    },
+    {
+      "name": "Кольцо 2м",
+      "price": 3000,
+      "unit": "шт",
+      "category": "material",
+      "id": 3
+    },
+    {
+      "name": "Копка кольца 1м",
+      "price": 2000,
+      "unit": "м",
+      "category": "work",
+      "id": 4
+    },
+    {
+      "name": "Копка кольца 1,5м",
+      "price": 4000,
+      "unit": "м",
+      "category": "work",
+      "id": 5
+    },
+    {
+      "name": "Копка кольца 2м",
+      "price": 6000,
+      "unit": "м",
+      "category": "work",
+      "id": 6
+    },
+    {
+      "name": "Копка траншеи",
+      "price": 1000,
+      "unit": "м",
+      "category": "work",
+      "id": 7
+    },
+    {
+      "name": "Люк",
+      "price": 1500,
+      "unit": "шт",
+      "category": "material",
+      "id": 8
+    }
+  ]
+}

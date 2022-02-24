@@ -1,0 +1,41 @@
+.form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 20px;
+  border: 3px solid blue;
+  border-radius: 30px;
+}
+.formItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+}
+.formItem label {
+  width: 80px;
+}
+.formItem input {
+  padding: 3px;
+  margin: 5px;
+  width: 180px;
+}
+.formItem input[type='radio'] {
+  width: 20px;
+}
+h3 {
+  margin: 10px;
+}
+.radioButtons {
+  margin: 5px 0;
+}
+.radioButtons input[name='category'] {
+  width: 50px;
+}
+
+.error {
+  max-width: 100px;
+  font-size: 12px;
+  color: orangered;
+}

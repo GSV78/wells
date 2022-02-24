@@ -5,6 +5,8 @@ const instance = axios.create({
 });
 
 export const getLibFromServer = () => {
-  debugger;
   return instance.get('/lib').then((responce) => responce.data);
+};
+export const addNewItem = (values) => {
+  return instance.post('/lib', values).then((responce) => responce.data);
 };

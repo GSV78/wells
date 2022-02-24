@@ -11,7 +11,6 @@ const { Header, Content, Footer } = Layout;
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
-    debugger;
     dispatch(getDB());
   }, [dispatch]);
   return (
@@ -24,7 +23,7 @@ function App() {
           <Menu.Item key={3}>{`Открыть объект`}</Menu.Item>
         </Menu>
       </Header>
-      <Content style={{ padding: '0 50px' }}>
+      <Content style={{ padding: '0 25px' }}>
         <div className="site-layout-content">
           <Routes>
             <Route path="/" element={<Lib />} />

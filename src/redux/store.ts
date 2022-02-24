@@ -3,15 +3,14 @@ import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import libReducer from './libReducer';
 
-// import libReducer from './libReducer';
-// import cartReducer from './cartReducer';
 
 let reducers = combineReducers({
   lib: libReducer,
-//   cart: cartReducer,
 });
 
-// @ts-ignore
+export type StateType = ReturnType<typeof store.getState>
+export type DispatchType = typeof store.dispatch
+
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleware)));
 
 // @ts-ignore
