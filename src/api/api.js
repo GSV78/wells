@@ -8,5 +8,5 @@ export const getLibFromServer = () => {
   return instance.get('/lib').then((responce) => responce.data);
 };
 export const addNewItem = (values) => {
-  return instance.post('/lib', values).then((responce) => responce.data);
+  return instance.post('/lib', values).then((responce) => responce);
 };

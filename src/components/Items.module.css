@@ -1,0 +1,40 @@
+h2 {
+  text-align: left;
+}
+
+.items {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 4px;
+  margin: 10px;
+}
+
+.name {
+  width: 150px;
+  border: 1px dotted;
+  margin-right: 2px;
+  padding: 0 4px;
+}
+
+.price {
+  width: 50px;
+  border: 1px dotted darkgreen;
+  padding: 0 2px;
+}
+
+.unit {
+  width: 55px;
+}
+
+.button {
+  margin: 0 4px;
+}
+
+.popup {
+  background-color: darkorange;
+}
+
+.unvisible {
+  display: none;
+}

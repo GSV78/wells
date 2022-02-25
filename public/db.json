@@ -24,21 +24,21 @@
     {
       "name": "Копка кольца 1м",
       "price": 2000,
-      "unit": "м",
+      "unit": "шт",
       "category": "work",
       "id": 4
     },
     {
       "name": "Копка кольца 1,5м",
       "price": 4000,
-      "unit": "м",
+      "unit": "шт",
       "category": "work",
       "id": 5
     },
     {
       "name": "Копка кольца 2м",
       "price": 6000,
-      "unit": "м",
+      "unit": "шт",
       "category": "work",
       "id": 6
     },
@@ -55,6 +55,20 @@
       "unit": "шт",
       "category": "material",
       "id": 8
+    },
+    {
+      "name": "Кольцо с дном d=1м",
+      "price": 1500,
+      "unit": "шт",
+      "category": "material",
+      "id": 9
+    },
+    {
+      "name": "Вывоз земли",
+      "price": 1500,
+      "unit": "с объекта",
+      "category": "work",
+      "id": 10
     }
   ]
 }

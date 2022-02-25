@@ -24,6 +24,8 @@ const validate = (values: ValuesType) => {
 
   if (!values.price) {
     errors.price = '!!!';
+  } else if (!/^\d/i.test(values.price.toString())) {
+    errors.price = 'цифры';
   }
 
   if (!values.unit) {
@@ -42,8 +44,6 @@ const AddMaterials: React.FC<{}> = () => {
         initialValues={initialValues}
         validate={validate}
         onSubmit={(values, actions) => {
-          // console.log({ values, actions });
-          // alert(JSON.stringify(values, null, 2));
           dispatch(addItem(values));
           actions.setSubmitting(false);
         }}>
@@ -83,28 +83,13 @@ const AddMaterials: React.FC<{}> = () => {
                 <div className={style.error}>{errors.unit}</div>
               ) : null}
             </div>
-            <button type="submit">Добавить</button>
+            <button type="submit" className={style.submitButton}>
+              Добавить
+            </button>
           </Form>
         )}
       </Formik>
     </div>
-
-    // <div>
-    //   <h1>My Example</h1>
-    //   <Formik
-    //     initialValues={initialValues}
-    //     onSubmit={(values, actions) => {
-    //       console.log({ values, actions });
-    //       alert(JSON.stringify(values, null, 2));
-    //       actions.setSubmitting(false);
-    //     }}>
-    //     <Form>
-    //       <label htmlFor="firstName">First Name</label>
-    //       <Field id="firstName" name="firstName" placeholder="First Name" />
-    //       <button type="submit">Submit</button>
-    //     </Form>
-    //   </Formik>
-    // </div>
   );
 };
 

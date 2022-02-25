@@ -8,8 +8,7 @@ let reducers = combineReducers({
   lib: libReducer,
 });
 
-export type StateType = ReturnType<typeof store.getState>
-export type DispatchType = typeof store.dispatch
+export type AppStateType = ReturnType<typeof store.getState>
 
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunkMiddleware)));
 
