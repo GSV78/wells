@@ -1,6 +1,6 @@
 import { Dispatch } from 'react';
 import { ThunkAction } from 'redux-thunk';
-import { addNewItem, getLibFromServer } from '../api/api';
+import { addNewItem, getLibFromServer, deleteItemFromServer, putNewPriceToServer } from '../api/api';
 import { ValuesType } from '../components/AddMaterials';
 import { AppStateType } from './store';
 
@@ -37,7 +37,7 @@ const getLibSuccess = (payload: InitialStateType): getLibSuccessType => ({ type:
 //ThunkCreators
 
 type GetStateType = () => AppStateType
-type DispachType = Dispatch<ActionsTypes>
+export type DispachType = Dispatch<ActionsTypes | ThunkType>
 
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 
@@ -46,10 +46,23 @@ export const getDB = (): ThunkType => async (dispatch, getState) => {
   dispatch(getLibSuccess(data))
 };
 export const addItem = (values: ValuesType): ThunkType => async (dispatch, getState) => {
-  const data: InitialStateType = await addNewItem(values)
-  console.log(data)
-  dispatch(getDB())
-  dispatch(getLibSuccess(data))
+  const status: number = await addNewItem(values)
+  if (status === 201) {
+    dispatch(getDB())
+  }
+};
+export const deleteItem = (id: number): ThunkType => async (dispatch, getState) => {
+  const status: number = await deleteItemFromServer(id)
+  if (status === 200) {
+    dispatch(getDB())
+  }
+};
+export const putNewPrice = (id: number, name: string, newPrice: number, unit: string, category: 'material' | 'work'): ThunkType => async (dispatch, getState) => {
+  debugger
+  const status: number = await putNewPriceToServer(id, name, newPrice, unit, category)
+  if (status === 200) {
+    dispatch(getDB())
+  }
 };
 
 

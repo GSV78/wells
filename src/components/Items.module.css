@@ -22,7 +22,11 @@ h2 {
   border: 1px dotted darkgreen;
   padding: 0 2px;
 }
-
+.newPrice {
+  width: 50px;
+  border: 2px dotted crimson;
+  padding: 0 2px;
+}
 .unit {
   width: 55px;
 }
@@ -32,9 +36,16 @@ h2 {
 }
 
 .popup {
-  background-color: darkorange;
+  margin-top: -5px;
+  margin-left: 20px;
+  margin-bottom: 25px;
 }
 
 .unvisible {
   display: none;
+}
+
+.buttonPopup {
+  margin: 0 10px;
+  width: 70px;
 }

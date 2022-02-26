@@ -36,28 +36,25 @@
       "id": 5
     },
     {
-      "name": "Копка кольца 2м",
-      "price": 6000,
-      "unit": "шт",
-      "category": "work",
+      "price": 600,
       "id": 6
     },
     {
-      "name": "Копка траншеи",
-      "price": 1000,
-      "unit": "м",
+      "name": "Копка кольца 2м",
+      "price": 6500,
+      "unit": "шт",
       "category": "work",
       "id": 7
     },
     {
-      "name": "Люк",
+      "name": "Копка траншеи",
       "price": 1500,
-      "unit": "шт",
-      "category": "material",
+      "unit": "м",
+      "category": "work",
       "id": 8
     },
     {
-      "name": "Кольцо с дном d=1м",
+      "name": "Люк",
       "price": 1500,
       "unit": "шт",
       "category": "material",
@@ -66,9 +63,16 @@
     {
       "name": "Вывоз земли",
       "price": 1500,
-      "unit": "с объекта",
+      "unit": "объект",
       "category": "work",
       "id": 10
+    },
+    {
+      "name": "монтаж люка",
+      "price": 1500,
+      "unit": "шт",
+      "category": "work",
+      "id": 11
     }
   ]
 }
