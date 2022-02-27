@@ -55,7 +55,7 @@
     },
     {
       "name": "Люк",
-      "price": 1500,
+      "price": 1300,
       "unit": "шт",
       "category": "material",
       "id": 9
@@ -69,7 +69,7 @@
     },
     {
       "name": "монтаж люка",
-      "price": 1500,
+      "price": 1600,
       "unit": "шт",
       "category": "work",
       "id": 11

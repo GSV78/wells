@@ -21,6 +21,8 @@ h2 {
   width: 50px;
   border: 1px dotted darkgreen;
   padding: 0 2px;
+  text-align: right;
+  margin-right: 5px;
 }
 .newPrice {
   width: 50px;
@@ -46,6 +48,6 @@ h2 {
 }
 
 .buttonPopup {
-  margin: 0 10px;
+  margin: 0 30px;
   width: 70px;
 }

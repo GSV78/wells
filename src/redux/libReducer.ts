@@ -43,6 +43,7 @@ type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 
 export const getDB = (): ThunkType => async (dispatch, getState) => {
   const data: InitialStateType = await getLibFromServer()
+
   dispatch(getLibSuccess(data))
 };
 export const addItem = (values: ValuesType): ThunkType => async (dispatch, getState) => {
@@ -58,7 +59,6 @@ export const deleteItem = (id: number): ThunkType => async (dispatch, getState) 
   }
 };
 export const putNewPrice = (id: number, name: string, newPrice: number, unit: string, category: 'material' | 'work'): ThunkType => async (dispatch, getState) => {
-  debugger
   const status: number = await putNewPriceToServer(id, name, newPrice, unit, category)
   if (status === 200) {
     dispatch(getDB())

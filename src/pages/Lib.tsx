@@ -2,8 +2,8 @@ import React from 'react';
 import { LibItemType } from '../redux/libReducer';
 import { useSelector } from 'react-redux';
 import { AppStateType } from '../redux/store';
-import AddMaterials from './AddMaterials';
-import Items from './Items';
+import AddMaterials from '../components/AddMaterials';
+import Item from '../components/Item';
 import classNames from 'classnames';
 import styles from './Lib.module.css';
 
@@ -18,13 +18,13 @@ const Lib: React.FC = () => {
   const MaterialsDiv =
     materials &&
     materials.map((el: LibItemType) => {
-      return <Items key={el.name + el.id} {...el} />;
+      return <Item key={el.name + el.id} {...el} />;
     });
 
   const WorksDiv =
     works &&
     works.map((el: LibItemType) => {
-      return <Items key={el.name + el.id} {...el} />;
+      return <Item key={el.name + el.id} {...el} />;
     });
 
   return (

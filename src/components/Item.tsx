@@ -2,13 +2,13 @@ import React from 'react';
 import { deleteItem, LibItemType, DispachType, putNewPrice } from '../redux/libReducer';
 import { DollarOutlined, DeleteOutlined, CheckCircleOutlined } from '@ant-design/icons';
 import { Button, Typography } from 'antd';
-import style from './Items.module.css';
+import style from './Item.module.css';
 import classNames from 'classnames/bind';
 import { useDispatch } from 'react-redux';
 
 let cx = classNames.bind(style);
 
-const Items: React.FC<LibItemType> = (props: LibItemType) => {
+const Item: React.FC<LibItemType> = (props: LibItemType) => {
   const dispach: DispachType = useDispatch();
   let [deletePopup, setDeletePopup] = React.useState(false);
 
@@ -18,11 +18,11 @@ const Items: React.FC<LibItemType> = (props: LibItemType) => {
 
   const DeleteMessage: React.FC<DeletePropsType> = ({ id }) => {
     const onDeleteItemAccept = () => dispach(deleteItem(id));
-
     const onDeleteItemAbort = () => setDeletePopup(false);
+
     return (
       <div className={cx('popup', { unvisible: !deletePopup })}>
-        Удалить элемент, {props.name}?
+        <div>Удалить элемент, {props.name}?</div>
         <Button
           onClick={onDeleteItemAbort}
           className={cx('buttonPopup')}
@@ -52,7 +52,6 @@ const Items: React.FC<LibItemType> = (props: LibItemType) => {
     category: 'material' | 'work',
   ) => {
     setChangePriceMode(false);
-    debugger;
     dispach(putNewPrice(id, name, newPrice, unit, category));
   };
   return (
@@ -63,32 +62,32 @@ const Items: React.FC<LibItemType> = (props: LibItemType) => {
         </Typography.Text>
         {!changePriceMode ? (
           <>
-            <Typography.Text className={style.price}>{props && props.price}</Typography.Text>
             <Button
               onClick={onChangeMode}
               className={style.button}
               type="primary"
               shape="circle"
-              icon={<DollarOutlined />}
+              icon={<DollarOutlined style={{ fontSize: '22px' }} />}
               size="small"
             />
+            <Typography.Text className={style.price}>{props && props.price}</Typography.Text>
           </>
         ) : (
           <>
+            <Button
+              onClick={() => onNewPrice(props.id, props.name, newPrice, props.unit, props.category)}
+              className={style.button}
+              type="dashed"
+              shape="circle"
+              icon={<CheckCircleOutlined style={{ fontSize: '23px', color: 'green' }} />}
+              size="small"
+            />
             <input
               className={style.newPrice}
               type="number"
               autoFocus
               onChange={onChangePrice}
               value={newPrice}
-            />
-            <Button
-              onClick={() => onNewPrice(props.id, props.name, newPrice, props.unit, props.category)}
-              className={style.button}
-              type="dashed"
-              shape="circle"
-              icon={<CheckCircleOutlined />}
-              size="small"
             />
           </>
         )}
@@ -110,4 +109,4 @@ const Items: React.FC<LibItemType> = (props: LibItemType) => {
   );
 };
 
-export default Items;
+export default Item;
