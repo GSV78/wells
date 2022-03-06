@@ -1,7 +1,7 @@
 import * as axios from 'axios';
 
 export const getLibFromServer = () => {
-  return axios.get(`lib`).then((responce) => responce.data);
+  return axios.get(`/lib`).then((responce) => responce.data);
 };
 export const addNewItem = (values) => {
   return axios.post('/lib', values).then((responce) => responce.status);

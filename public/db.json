@@ -69,10 +69,11 @@
     },
     {
       "name": "монтаж люка",
-      "price": 1500,
+      "price": 220,
       "unit": "шт",
       "category": "work",
       "id": 11
     }
-  ]
+  ],
+  "objects": []
 }

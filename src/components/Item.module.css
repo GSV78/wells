@@ -9,6 +9,10 @@ h2 {
   padding: 0 4px;
   margin: 10px;
 }
+.items.active {
+  width: fit-content;
+  background-color: rgb(209, 255, 191);
+}
 
 .name {
   width: 150px;

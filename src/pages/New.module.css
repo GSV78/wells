@@ -1,0 +1,13 @@
+.result {
+  margin-top: 40px;
+  border: 2px solid yellowgreen;
+  border-radius: 5px;
+  padding: 10px;
+}
+.resultName {
+  font-weight: bold;
+}
+.materials,
+.works {
+  margin-left: 10px;
+}
