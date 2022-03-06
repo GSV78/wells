@@ -46,7 +46,7 @@ const objectReducer = (state = initialState, action: any) => {
         : wokPrice = action.payload.price * delta
       return ({
         ...state,
-        items: [...arrDismatch, action.payload],
+        items: [...arrDismatch, action.payload].filter((el) => { return el.count !== 0 }),
         priceMaterials: state.priceMaterials + matPrice,
         priceWorks: state.priceWorks + wokPrice,
         totalSum: state.totalSum + wokPrice + matPrice
