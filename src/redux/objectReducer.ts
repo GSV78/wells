@@ -1,17 +1,16 @@
 import { Dispatch } from 'react';
-import { ThunkAction } from 'redux-thunk';
-import { addNewItem, getLibFromServer, deleteItemFromServer, putNewPriceToServer } from '../api/api';
+// import { ThunkAction } from 'redux-thunk';
 import { AppStateType } from './store';
 
 //action.types
-const ADD_ITEM_TO_OBJECT: string = 'wells/objectReducer/add_item_to_object';
-const SAVE_OBJECT_NAME: string = 'wells/objectReducer/save_object_name';
+const ADD_ITEM_TO_OBJECT = 'wells/objectReducer/add_item_to_object';
+const SAVE_OBJECT_NAME = 'wells/objectReducer/save_object_name';
 
 export type ObjectItemsType = { id: number, name: string, price: number, unit: string, category: 'material' | 'work', count: number }
 export type ObjectType = { id?: number, name: string, items: Array<ObjectItemsType>, priceMaterials: number, priceWorks: number, totalSum: number }
 
 let initialState: ObjectType = {
-  name: 'NoName',
+  name: 'Новый объект',
   items: [],
   priceMaterials: 0,
   priceWorks: 0,
@@ -22,7 +21,7 @@ export type InitialStateType = typeof initialState
 
 //Reducer
 
-const objectReducer = (state = initialState, action: any) => {
+const objectReducer = (state = initialState, action: ActionsTypes) => {
   switch (action.type) {
     case ADD_ITEM_TO_OBJECT: {
       let delta: number

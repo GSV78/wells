@@ -1,7 +1,8 @@
 .result {
+  width: fit-content;
   margin-top: 40px;
   border: 2px solid yellowgreen;
-  border-radius: 5px;
+  border-radius: 5%;
   padding: 10px;
 }
 .resultName {

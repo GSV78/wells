@@ -3,6 +3,7 @@ h2 {
 }
 
 .items {
+  width: fit-content;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -10,7 +11,6 @@ h2 {
   margin: 10px;
 }
 .items.active {
-  width: fit-content;
   background-color: rgb(209, 255, 191);
 }
 

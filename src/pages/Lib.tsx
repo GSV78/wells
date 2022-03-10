@@ -4,10 +4,6 @@ import { useSelector } from 'react-redux';
 import { AppStateType } from '../redux/store';
 import AddMaterials from '../components/AddMaterials';
 import Item from '../components/Item';
-import classNames from 'classnames';
-import styles from './Lib.module.css';
-
-let cx = classNames.bind(styles);
 
 const Lib: React.FC = () => {
   let lib = useSelector((state: AppStateType) => state.lib);
@@ -29,11 +25,11 @@ const Lib: React.FC = () => {
 
   return (
     <div>
+      <AddMaterials />
       <h2>Материалы</h2>
       <div>{MaterialsDiv}</div>
       <h2>Работы</h2>
       <div>{WorksDiv}</div>
-      <AddMaterials />
     </div>
   );
 };

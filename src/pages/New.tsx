@@ -65,13 +65,13 @@ function New() {
   return (
     <div>
       <div>
-        <h2>Материалы</h2>
+        <h2>Материалы:</h2>
         <div>{MaterialsObject}</div>
         <h3>Итого по материалам: {object.priceMaterials} рублей</h3>
-        <h2>Работы</h2>
+        <h2>Работы:</h2>
         <div>{WorksObject}</div>
         <h3>Итого по работам: {object.priceWorks} рублей</h3>
-        <h2>Итого: {object.totalSum} рублей</h2>
+        <h2>Всего: {object.totalSum} рублей</h2>
         <h2>Имя объекта</h2>
         <input type="text" onChange={onChangeName} value={objectName} />
         <Button type="primary" onClick={onSave}>
@@ -80,14 +80,14 @@ function New() {
       </div>
       <div className={styles.result}>
         <h2>Имя объекта: {object.name}</h2>
-        <h2>Материалы</h2>
+        <h2>Материалы:</h2>
         <div className={styles.materials}>{MaterialsObjectResult}</div>
         <h3>Итого по материалам: {object.priceMaterials} руб.</h3>
-        <h2>Работы</h2>
+        <h2>Работы:</h2>
         <div className={styles.works}>{WorksObjectResult}</div>
         <h3>Итого по работам: {object.priceWorks} руб.</h3>
         <h2>
-          Итого по объекту: <span className={styles.sum}>{object.totalSum} руб.</span>
+          Всего: <span className={styles.sum}>{object.totalSum} руб.</span>
         </h2>
       </div>
     </div>

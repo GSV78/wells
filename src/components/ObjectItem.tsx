@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
-import { deleteItem, LibItemType, DispachType, putNewPrice } from '../redux/libReducer';
-import { DollarOutlined, DeleteOutlined, CheckCircleOutlined } from '@ant-design/icons';
-import { Button, Typography } from 'antd';
+import { LibItemType } from '../redux/libReducer';
+import { Typography } from 'antd';
 import style from './Item.module.css';
 import classNames from 'classnames/bind';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItemToObject, DispachToObjectType } from '../redux/objectReducer';
+import { addItemToObject, DispachToObjectType, ObjectItemsType } from '../redux/objectReducer';
+import { AppStateType } from '../redux/store';
 
 let cx = classNames.bind(style);
+let initialCount: number;
 
 const ObjectItem: React.FC<LibItemType> = (props: LibItemType) => {
+  const items: Array<ObjectItemsType> = useSelector((state: AppStateType) => state.object.items);
+  const sameItem: Array<ObjectItemsType> = items && items.filter((el) => el.name === props.name);
+
+  initialCount = sameItem.length ? sameItem[0].count : 0;
+
   const dispatch: DispachToObjectType = useDispatch();
-  const [count, setCount] = useState(+0);
+  const [count, setCount] = useState(initialCount);
 
   const onChangeCount = (e: React.FormEvent<EventTarget>): void => {
     let target = e.target as HTMLInputElement;

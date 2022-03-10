@@ -6,6 +6,8 @@ import { DispachType, getDB } from './redux/libReducer';
 import { Route, Routes, Link } from 'react-router-dom';
 import Lib from './pages/Lib';
 import New from './pages/New';
+import styles from './App.module.css';
+import logo from './assets/images/logo.png';
 
 const { Header, Content, Footer } = Layout;
 
@@ -17,8 +19,10 @@ function App() {
 
   return (
     <Layout className="layout">
-      <Header>
-        <div className="logo" />
+      <div className={styles.logo}>
+        <img src={logo} alt="logo" />
+      </div>
+      <Header className={styles.header}>
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
           <Menu.Item key={1}>
             <Link to="/">{`Справочник`}</Link>
