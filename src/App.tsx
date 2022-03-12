@@ -6,6 +6,7 @@ import { DispachType, getDB } from './redux/libReducer';
 import { Route, Routes, Link } from 'react-router-dom';
 import Lib from './pages/Lib';
 import New from './pages/New';
+import Open from './pages/Open';
 import styles from './App.module.css';
 import logo from './assets/images/logo.png';
 
@@ -15,7 +16,7 @@ function App() {
   const dispatch: DispachType = useDispatch();
   useEffect(() => {
     dispatch(getDB());
-  }, [dispatch]);
+  }, []);
 
   return (
     <Layout className="layout">
@@ -41,7 +42,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Lib />} />
             <Route path="/new/" element={<New />} />
-            <Route path="/open/" element={<div>В разработке...</div>} />
+            <Route path="/open/" element={<Open />} />
           </Routes>
         </div>
       </Content>

@@ -1,5 +1,7 @@
 import { Dispatch } from 'react';
-// import { ThunkAction } from 'redux-thunk';
+import { useNavigate } from 'react-router-dom';
+import { ThunkAction } from 'redux-thunk';
+import { saveObjectToServer } from '../api/api';
 import { AppStateType } from './store';
 
 //action.types
@@ -7,9 +9,10 @@ const ADD_ITEM_TO_OBJECT = 'wells/objectReducer/add_item_to_object';
 const SAVE_OBJECT_NAME = 'wells/objectReducer/save_object_name';
 
 export type ObjectItemsType = { id: number, name: string, price: number, unit: string, category: 'material' | 'work', count: number }
-export type ObjectType = { id?: number, name: string, items: Array<ObjectItemsType>, priceMaterials: number, priceWorks: number, totalSum: number }
+export type ObjectType = { id: number, name: string, items: Array<ObjectItemsType>, priceMaterials: number, priceWorks: number, totalSum: number }
 
 let initialState: ObjectType = {
+  id: 0,
   name: 'Новый объект',
   items: [],
   priceMaterials: 0,
@@ -20,7 +23,6 @@ let initialState: ObjectType = {
 export type InitialStateType = typeof initialState
 
 //Reducer
-
 const objectReducer = (state = initialState, action: ActionsTypes) => {
   switch (action.type) {
     case ADD_ITEM_TO_OBJECT: {
@@ -75,38 +77,33 @@ type SaveObjectNameType = {
 }
 
 export const addItemToObject = (payload: ObjectItemsType): AddItemType => ({ type: ADD_ITEM_TO_OBJECT, payload });
-export const saveObject = (payload: string): SaveObjectNameType => ({ type: SAVE_OBJECT_NAME, payload });
+export const saveObjectName = (payload: string): SaveObjectNameType => ({ type: SAVE_OBJECT_NAME, payload });
 
 // ThunkCreators
 
-type GetStateType = () => AppStateType
-export type DispachToObjectType = Dispatch<ActionsTypes>
+// type GetStateType = () => AppStateType
+export type DispachToObjectType = Dispatch<ActionsTypes | ThunkType>
 
-// type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 
 // export const getDB = (): ThunkType => async (dispatch, getState) => {
 //   const data: InitialStateType = await getLibFromServer()
 
 //   dispatch(getLibSuccess(data))
 // };
-// export const addItem = (values: ValuesType): ThunkType => async (dispatch, getState) => {
-//   const status: number = await addNewItem(values)
-//   if (status === 201) {
-//     dispatch(getDB())
-//   }
-// };
+export const saveObjectToServerThunk = (object: ObjectType): ThunkType => async (dispatch, getState) => {
+  const status: number = await saveObjectToServer(object)
+  if (status === 201) {
+
+  }
+};
 // export const deleteItem = (id: number): ThunkType => async (dispatch, getState) => {
 //   const status: number = await deleteItemFromServer(id)
 //   if (status === 200) {
 //     dispatch(getDB())
 //   }
 // };
-// export const putNewPrice = (id: number, name: string, newPrice: number, unit: string, category: 'material' | 'work'): ThunkType => async (dispatch, getState) => {
-//   const status: number = await putNewPriceToServer(id, name, newPrice, unit, category)
-//   if (status === 200) {
-//     dispatch(getDB())
-//   }
-// };
+
 
 
 export default objectReducer;

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { ValuesType } from '../components/AddMaterials';
+import { ObjectType } from '../redux/objectReducer';
 
 export const getLibFromServer = () => {
   return axios.get(`/lib`).then((responce) => responce.data);
@@ -14,4 +15,13 @@ export const putNewPriceToServer = (id: number, name: string, newPrice: number, 
   return axios
     .put(`/lib/${id}`, { name, price: newPrice, unit, category })
     .then((responce) => responce.status);
+};
+export const saveObjectToServer = (object: ObjectType) => {
+  return axios.post('/objects', object).then((responce) => responce.status);
+};
+export const getObjectsFromServer = () => {
+  return axios.get(`/objects`).then((responce) => responce.data);
+};
+export const deleteObjectFromServer = (id: number) => {
+  return axios.delete(`/objects/${id}`).then((responce) => responce.status);
 };

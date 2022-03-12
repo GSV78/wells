@@ -73,7 +73,202 @@
       "unit": "шт",
       "category": "work",
       "id": 11
+    },
+    {
+      "name": "Установка фильтра",
+      "price": 1000,
+      "unit": "шт",
+      "category": "work",
+      "id": 12
+    },
+    {
+      "name": "фильтр",
+      "price": 2000,
+      "unit": "шт",
+      "category": "material",
+      "id": 13
     }
   ],
-  "objects": []
+  "objects": [
+    {
+      "id": 1,
+      "name": "Канаха пример",
+      "items": [
+        {
+          "id": 9,
+          "name": "Люк",
+          "price": 1400,
+          "unit": "шт",
+          "category": "material",
+          "count": 1
+        },
+        {
+          "id": 1,
+          "name": "Кольцо 1м",
+          "price": 1000,
+          "unit": "шт",
+          "category": "material",
+          "count": 2
+        },
+        {
+          "id": 8,
+          "name": "Копка траншеи",
+          "price": 1500,
+          "unit": "м",
+          "category": "work",
+          "count": 5
+        },
+        {
+          "id": 10,
+          "name": "Вывоз земли",
+          "price": 1500,
+          "unit": "объект",
+          "category": "work",
+          "count": 1
+        },
+        {
+          "id": 11,
+          "name": "монтаж люка",
+          "price": 1000,
+          "unit": "шт",
+          "category": "work",
+          "count": 1
+        },
+        {
+          "id": 4,
+          "name": "Копка кольца 1м",
+          "price": 2000,
+          "unit": "шт",
+          "category": "work",
+          "count": 2
+        }
+      ],
+      "priceMaterials": 3400,
+      "priceWorks": 14000,
+      "totalSum": 17400
+    },
+    {
+      "id": 2,
+      "name": "колодец пример",
+      "items": [
+        {
+          "id": 1,
+          "name": "Кольцо 1м",
+          "price": 1000,
+          "unit": "шт",
+          "category": "material",
+          "count": 10
+        },
+        {
+          "id": 4,
+          "name": "Копка кольца 1м",
+          "price": 2000,
+          "unit": "шт",
+          "category": "work",
+          "count": 10
+        },
+        {
+          "id": 10,
+          "name": "Вывоз земли",
+          "price": 1500,
+          "unit": "объект",
+          "category": "work",
+          "count": 1
+        },
+        {
+          "id": 12,
+          "name": "Установка фильтра",
+          "price": 1000,
+          "unit": "шт",
+          "category": "work",
+          "count": 1
+        },
+        {
+          "id": 13,
+          "name": "фильтр",
+          "price": 2000,
+          "unit": "шт",
+          "category": "material",
+          "count": 1
+        }
+      ],
+      "priceMaterials": 12000,
+      "priceWorks": 22500,
+      "totalSum": 34500
+    },
+    {
+      "id": 3,
+      "name": "траншея пример",
+      "items": [
+        {
+          "id": 8,
+          "name": "Копка траншеи",
+          "price": 1500,
+          "unit": "м",
+          "category": "work",
+          "count": 10
+        }
+      ],
+      "priceMaterials": 0,
+      "priceWorks": 15000,
+      "totalSum": 15000
+    },
+    {
+      "id": 4,
+      "name": "супер-канаха пример",
+      "items": [
+        {
+          "id": 3,
+          "name": "Кольцо 2м",
+          "price": 3000,
+          "unit": "шт",
+          "category": "material",
+          "count": 4
+        },
+        {
+          "id": 7,
+          "name": "Копка кольца 2м",
+          "price": 6500,
+          "unit": "шт",
+          "category": "work",
+          "count": 4
+        },
+        {
+          "id": 9,
+          "name": "Люк",
+          "price": 1400,
+          "unit": "шт",
+          "category": "material",
+          "count": 2
+        },
+        {
+          "id": 10,
+          "name": "Вывоз земли",
+          "price": 1500,
+          "unit": "объект",
+          "category": "work",
+          "count": 1
+        },
+        {
+          "id": 8,
+          "name": "Копка траншеи",
+          "price": 1500,
+          "unit": "м",
+          "category": "work",
+          "count": 20
+        },
+        {
+          "id": 11,
+          "name": "монтаж люка",
+          "price": 1000,
+          "unit": "шт",
+          "category": "work",
+          "count": 2
+        }
+      ],
+      "priceMaterials": 14800,
+      "priceWorks": 59500,
+      "totalSum": 74300
+    }
+  ]
 }

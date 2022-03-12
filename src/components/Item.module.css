@@ -15,8 +15,14 @@ h2 {
 }
 
 .name {
-  width: 150px;
+  width: 140px;
   border: 1px dotted;
+  margin-right: 2px;
+  padding: 0 4px;
+}
+.objectsName {
+  border: 1px dotted;
+  width: 240px;
   margin-right: 2px;
   padding: 0 4px;
 }

@@ -84,7 +84,7 @@ const AddMaterials: React.FC<{}> = () => {
               ) : null}
             </div>
             <button type="submit" className={style.submitButton}>
-              Добавить
+              <strong>Добавить</strong>
             </button>
           </Form>
         )}

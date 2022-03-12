@@ -3,11 +3,13 @@ import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import libReducer from './libReducer';
 import objectReducer from './objectReducer';
+import objectsReducer from './objectsReducer';
 
 
 let reducers = combineReducers({
   lib: libReducer,
-  object: objectReducer
+  object: objectReducer,
+  objects: objectsReducer
 });
 
 export type AppStateType = ReturnType<typeof store.getState>
