@@ -67,15 +67,14 @@ function New() {
   const onSaveName = () => {
     dispatch(saveObjectName(objectName));
   };
-  const navigate = useNavigate();
   const onSaveObject = () => {
-    navigate('/open');
     dispatch(saveObjectToServerThunk({ ...object, name: objectName }));
   };
 
   return (
     <div>
       <div>
+        <h2>{object.name}:</h2>
         <h2>Материалы:</h2>
         <div>{MaterialsObject}</div>
         <h3>Итого по материалам: {object.priceMaterials} рублей</h3>

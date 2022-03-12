@@ -25,6 +25,7 @@ const Lib: React.FC = () => {
 
   return (
     <div>
+      <h2>Справочник:</h2>
       <AddMaterials />
       <h2>Материалы</h2>
       <div>{MaterialsDiv}</div>

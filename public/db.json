@@ -269,6 +269,23 @@
       "priceMaterials": 14800,
       "priceWorks": 59500,
       "totalSum": 74300
+    },
+    {
+      "id": 5,
+      "name": "12",
+      "items": [
+        {
+          "id": 1,
+          "name": "Кольцо 1м",
+          "price": 1000,
+          "unit": "шт",
+          "category": "material",
+          "count": 1
+        }
+      ],
+      "priceMaterials": 1000,
+      "priceWorks": 0,
+      "totalSum": 1000
     }
   ]
 }
