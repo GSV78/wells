@@ -1,5 +1,4 @@
 import { Dispatch } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { ThunkAction } from 'redux-thunk';
 import { saveObjectToServer } from '../api/api';
 import { AppStateType } from './store';
@@ -94,7 +93,7 @@ type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsTypes>
 export const saveObjectToServerThunk = (object: ObjectType): ThunkType => async (dispatch, getState) => {
   const status: number = await saveObjectToServer(object)
   if (status === 201) {
-
+    dispatch(saveObjectName(object.name))
   }
 };
 // export const deleteItem = (id: number): ThunkType => async (dispatch, getState) => {

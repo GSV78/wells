@@ -1,7 +1,7 @@
 import { Button } from 'antd';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import ObjectItem from '../components/ObjectItem';
 import { LibItemType } from '../redux/libReducer';
 import {
@@ -64,10 +64,11 @@ function New() {
       );
     });
 
-  const onSaveName = () => {
-    dispatch(saveObjectName(objectName));
-  };
+  // const onSaveName = () => {
+  //   dispatch(saveObjectName(objectName));
+  // };
   const onSaveObject = () => {
+    dispatch(saveObjectName(objectName));
     dispatch(saveObjectToServerThunk({ ...object, name: objectName }));
   };
 
@@ -84,8 +85,8 @@ function New() {
         <h2>Всего: {object.totalSum} рублей</h2>
         <h2>Имя объекта</h2>
         <input type="text" onChange={onChangeName} value={objectName} />
-        <Button type="primary" onClick={onSaveName}>
-          Назвать
+        <Button type="primary" onClick={onSaveObject}>
+          Сохранить
         </Button>
       </div>
       <div className={styles.result}>
@@ -99,9 +100,9 @@ function New() {
         <h2>
           Всего: <span className={styles.sum}>{object.totalSum} руб.</span>
         </h2>
-        <Button type="primary" onClick={onSaveObject}>
+        {/* <Button type="primary" onClick={onSaveObject}>
           Сохранить объект
-        </Button>
+        </Button> */}
       </div>
     </div>
   );

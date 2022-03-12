@@ -4,12 +4,14 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import libReducer from './libReducer';
 import objectReducer from './objectReducer';
 import objectsReducer from './objectsReducer';
+import authReducer from './authReducer';
 
 
 let reducers = combineReducers({
   lib: libReducer,
   object: objectReducer,
-  objects: objectsReducer
+  objects: objectsReducer,
+  auth: authReducer
 });
 
 export type AppStateType = ReturnType<typeof store.getState>
