@@ -26,14 +26,14 @@ function App() {
       <Header className={styles.header}>
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
           <Menu.Item key={1}>
-            <Link to="/">{`Справочник`}</Link>
+            <Link to="/">{`С`}</Link>
           </Menu.Item>
           <Menu.Item key={2}>
             {' '}
-            <Link to="/new/">{`Новый объект`}</Link>
+            <Link to="/new/">{`Н`}</Link>
           </Menu.Item>
           <Menu.Item key={3}>
-            <Link to="/open/">{`Архив объектов`}</Link>
+            <Link to="/open/">{`А`}</Link>
           </Menu.Item>
         </Menu>
       </Header>
