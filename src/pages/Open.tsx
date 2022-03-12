@@ -19,7 +19,7 @@ function Open() {
 
   return (
     <div>
-      <h2>Открыть:</h2>
+      <h2>Архив объектов:</h2>
       <div>{Objects}</div>
     </div>
   );

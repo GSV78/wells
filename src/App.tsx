@@ -33,7 +33,7 @@ function App() {
             <Link to="/new/">{`Новый объект`}</Link>
           </Menu.Item>
           <Menu.Item key={3}>
-            <Link to="/open/">{`Открыть объект`}</Link>
+            <Link to="/open/">{`Архив объектов`}</Link>
           </Menu.Item>
         </Menu>
       </Header>
