@@ -65,5 +65,4 @@ export const putNewPrice = (id: number, name: string, newPrice: number, unit: st
   }
 };
 
-
 export default libReducer;

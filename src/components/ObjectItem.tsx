@@ -6,12 +6,16 @@ import classNames from 'classnames/bind';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItemToObject, DispachToObjectType, ObjectItemsType } from '../redux/objectReducer';
 import { AppStateType } from '../redux/store';
+import Price from './Price';
 
 let cx = classNames.bind(style);
 let initialCount: number;
 
 const ObjectItem: React.FC<LibItemType> = (props: LibItemType) => {
   const items: Array<ObjectItemsType> = useSelector((state: AppStateType) => state.object.items);
+  const libItem: LibItemType = useSelector((state: AppStateType) =>
+    state.lib.filter((el) => el.name === props.name),
+  )[0];
   const sameItem: Array<ObjectItemsType> = items && items.filter((el) => el.name === props.name);
 
   initialCount = sameItem.length ? sameItem[0].count : 0;
@@ -41,11 +45,10 @@ const ObjectItem: React.FC<LibItemType> = (props: LibItemType) => {
       className={cx('items', {
         active: count,
       })}>
-      <Typography.Text italic strong className={style.name}>
+      <Typography.Text italic strong className={style.objectName}>
         {props && props.name}{' '}
       </Typography.Text>
-
-      <Typography.Text className={style.price}>{props && props.price}</Typography.Text>
+      <Price {...libItem} />
       <input
         className={style.newPrice}
         type="number"

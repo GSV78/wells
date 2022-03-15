@@ -5,6 +5,7 @@ import { Button, Typography } from 'antd';
 import style from './Item.module.css';
 import classNames from 'classnames/bind';
 import { useDispatch } from 'react-redux';
+import Price from './Price';
 
 let cx = classNames.bind(style);
 
@@ -37,60 +38,13 @@ const Item: React.FC<LibItemType> = (props: LibItemType) => {
     );
   };
 
-  const [changePriceMode, setChangePriceMode] = React.useState(false);
-  const onChangeMode = () => setChangePriceMode(true);
-  const [newPrice, setNewPrice] = React.useState(props.price);
-  const onChangePrice = (e: React.FormEvent<EventTarget>): void => {
-    let target = e.target as HTMLInputElement;
-    setNewPrice(+target.value);
-  };
-  const onNewPrice = (
-    id: number,
-    name: string,
-    newPrice: number,
-    unit: string,
-    category: 'material' | 'work',
-  ) => {
-    setChangePriceMode(false);
-    dispach(putNewPrice(id, name, newPrice, unit, category));
-  };
   return (
     <>
       <div className={style.items}>
         <Typography.Text italic strong className={style.name}>
           {props && props.name}{' '}
         </Typography.Text>
-        {!changePriceMode ? (
-          <>
-            <Button
-              onClick={onChangeMode}
-              className={style.button}
-              type="primary"
-              shape="circle"
-              icon={<DollarOutlined style={{ fontSize: '22px' }} />}
-              size="small"
-            />
-            <Typography.Text className={style.price}>{props && props.price}</Typography.Text>
-          </>
-        ) : (
-          <>
-            <Button
-              onClick={() => onNewPrice(props.id, props.name, newPrice, props.unit, props.category)}
-              className={style.button}
-              type="dashed"
-              shape="circle"
-              icon={<CheckCircleOutlined style={{ fontSize: '23px', color: 'green' }} />}
-              size="small"
-            />
-            <input
-              className={style.newPrice}
-              type="number"
-              autoFocus
-              onChange={onChangePrice}
-              value={newPrice}
-            />
-          </>
-        )}
+        <Price {...props} />
 
         <Typography.Text className={style.unit}> руб / {props && props.unit} </Typography.Text>
 
