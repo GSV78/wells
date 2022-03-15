@@ -36,7 +36,7 @@ function New() {
       return <ObjectItem key={el.name + el.id} {...el} />;
     });
 
-  const [objectName, setObjectName] = useState('');
+  const [objectName, setObjectName] = useState(object.name);
   const onChangeName = (e: React.FormEvent<EventTarget>): void => {
     let target = e.target as HTMLInputElement;
     setObjectName(target.value);
