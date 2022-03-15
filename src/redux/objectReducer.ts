@@ -85,6 +85,7 @@ const objectReducer = (state = initialState, action: ActionsTypes) => {
       let object = action.payload
       return ({
         ...state,
+        name: action.payload.name,
         items: action.payload.items,
         priceMaterials: action.payload.priceMaterials,
         priceWorks: action.payload.priceWorks,

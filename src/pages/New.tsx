@@ -37,6 +37,7 @@ function New() {
     });
 
   const [objectName, setObjectName] = useState(object.name);
+  debugger
   const onChangeName = (e: React.FormEvent<EventTarget>): void => {
     let target = e.target as HTMLInputElement;
     setObjectName(target.value);
