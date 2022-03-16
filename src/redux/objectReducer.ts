@@ -78,7 +78,7 @@ const objectReducer = (state = initialState, action: ActionsTypes) => {
         : wokPriceChange = objectItem.count * delta
       return ({
         ...state,
-        items: [...state.items, { ...objectItem }],
+        items: [...state.items],
         priceMaterials: state.priceMaterials + matPriceChange,
         priceWorks: state.priceWorks + wokPriceChange,
         totalSum: state.totalSum + wokPriceChange + matPriceChange
