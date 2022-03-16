@@ -5,6 +5,7 @@ import classNames from 'classnames/bind';
 import { DeleteOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  changePriceInObject,
   DispachToObjectType,
   loadObjectFromServerThunk,
   ObjectItemsType,
@@ -28,6 +29,7 @@ const ObjectsItem: React.FC<ObjectType> = (props: ObjectType) => {
       let libItem = lib.filter((el) => {
         return el.name === item.name;
       })[0];
+      dispachObject(changePriceInObject(item.price, libItem.name));
       dispachLib(putNewPrice(libItem.id, libItem.name, item.price, libItem.unit, libItem.category));
     });
   };

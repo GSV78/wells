@@ -59,6 +59,7 @@ const objectReducer = (state = initialState, action: ActionsTypes) => {
       })
     }
     case CHANGE_PRICE: {
+      debugger
       let arrMatch = state.items.filter((el) => {
         return el.name === action.name
       })
@@ -66,6 +67,7 @@ const objectReducer = (state = initialState, action: ActionsTypes) => {
       let delta: number
       if (arrMatch.length !== 0) {
         delta = action.payload - objectItem.price
+        objectItem.price = action.payload
       } else {
         delta = 0
       }
@@ -76,17 +78,17 @@ const objectReducer = (state = initialState, action: ActionsTypes) => {
         : wokPriceChange = objectItem.count * delta
       return ({
         ...state,
+        items: [...state.items, { ...objectItem }],
         priceMaterials: state.priceMaterials + matPriceChange,
         priceWorks: state.priceWorks + wokPriceChange,
         totalSum: state.totalSum + wokPriceChange + matPriceChange
       })
     }
     case LOAD_OBJECT_SUCCESS: {
-      let object = action.payload
       return ({
         ...state,
         name: action.payload.name,
-        items: action.payload.items,
+        items: [...JSON.parse(JSON.stringify(action.payload.items))],
         priceMaterials: action.payload.priceMaterials,
         priceWorks: action.payload.priceWorks,
         totalSum: action.payload.totalSum
