@@ -1,7 +1,6 @@
 import { Button } from 'antd';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
 import ObjectItem from '../components/ObjectItem';
 import Result from '../components/Result';
 import { LibItemType } from '../redux/libReducer';
@@ -10,10 +9,9 @@ import {
   ObjectType,
   ObjectItemsType,
   saveObjectName,
-  saveObjectToServerThunk
+  saveObjectToServerThunk,
 } from '../redux/objectReducer';
 import { AppStateType } from '../redux/store';
-// import styles from './New.module.css';
 
 function New() {
   const dispatch: DispachToObjectType = useDispatch();

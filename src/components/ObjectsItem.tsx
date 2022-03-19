@@ -26,7 +26,6 @@ const ObjectsItem: React.FC<ObjectType> = (props: ObjectType) => {
 
   const onLoadObject = (id: number) => {
     onSuccessLoad();
-    debugger;
     dispachObject(loadObjectFromServerThunk(id));
     props.items.forEach((item) => {
       let libItem = lib.filter((el) => {

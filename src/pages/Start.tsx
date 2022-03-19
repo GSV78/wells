@@ -7,7 +7,7 @@ import { Route, Routes, Link } from 'react-router-dom';
 import Lib from './Lib';
 import New from './New';
 import Open from './Open';
-import styles from '../App.module.css';
+import styles from './Start.module.css';
 import logo from '../assets/images/logo.png';
 
 const { Header, Content, Footer } = Layout;
@@ -22,7 +22,7 @@ function Start() {
         <img src={logo} alt="logo" />
       </div>
       <Header className={styles.header}>
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+        <Menu selectable={false} theme="dark" mode="horizontal">
           <Menu.Item key={1}>
             <Link to="/">{`С`}</Link>
           </Menu.Item>
