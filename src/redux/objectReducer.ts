@@ -1,17 +1,14 @@
-import { useSelector } from 'react-redux';
 import { Dispatch } from 'react';
 import { ThunkAction } from 'redux-thunk';
 import { getCurrentObjectFromServer, saveObjectToServer } from '../api/api';
 import { AppStateType } from './store';
-import { putNewPrice } from './libReducer';
 
-
-// let lib = useSelector((state: AppStateType) => state.lib)
 //action.types
 const ADD_ITEM_TO_OBJECT = 'wells/objectReducer/add_item_to_object';
 const SAVE_OBJECT_NAME = 'wells/objectReducer/save_object_name';
 const CHANGE_PRICE = 'wells/objectReducer/change_price';
 const LOAD_OBJECT_SUCCESS = 'wells/objectReducer/load_object_success';
+// const CLEAR_ALL = 'wells/objectReducer/clear_all';
 
 export type ObjectItemsType = { id: number, name: string, price: number, unit: string, category: 'material' | 'work', count: number }
 export type ObjectType = { id: number, name: string, items: Array<ObjectItemsType>, priceMaterials: number, priceWorks: number, totalSum: number }
@@ -59,7 +56,6 @@ const objectReducer = (state = initialState, action: ActionsTypes) => {
       })
     }
     case CHANGE_PRICE: {
-      debugger
       let arrMatch = state.items.filter((el) => {
         return el.name === action.name
       })
@@ -73,9 +69,9 @@ const objectReducer = (state = initialState, action: ActionsTypes) => {
       }
       let matPriceChange: number = 0
       let wokPriceChange: number = 0
-      objectItem.category === 'material'
+      objectItem && (objectItem.category === 'material'
         ? matPriceChange = objectItem.count * delta
-        : wokPriceChange = objectItem.count * delta
+        : wokPriceChange = objectItem.count * delta)
       return ({
         ...state,
         items: [...state.items],
@@ -100,6 +96,11 @@ const objectReducer = (state = initialState, action: ActionsTypes) => {
         name: action.payload
       })
     }
+    // case CLEAR_ALL: {
+    //   return (
+    //     initialState
+    //   )
+    // }
     default:
       return state;
   }
@@ -125,11 +126,15 @@ type LoadObjectType = {
   type: typeof LOAD_OBJECT_SUCCESS
   payload: ObjectType
 }
+// type ClearAllType = {
+//   type: typeof CLEAR_ALL
+// }
 
 export const addItemToObject = (payload: ObjectItemsType): AddItemType => ({ type: ADD_ITEM_TO_OBJECT, payload });
 export const changePriceInObject = (payload: number, name: string): ChangePriceType => ({ type: CHANGE_PRICE, payload, name });
 export const saveObjectName = (payload: string): SaveObjectNameType => ({ type: SAVE_OBJECT_NAME, payload });
 export const loadObjectSuccess = (payload: ObjectType): LoadObjectType => ({ type: LOAD_OBJECT_SUCCESS, payload });
+// export const clearAll = (): ClearAllType => ({ type: CLEAR_ALL });
 
 // ThunkCreators
 

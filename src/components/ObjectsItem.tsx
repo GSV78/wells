@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Typography } from 'antd';
 import styles from './Item.module.css';
 import classNames from 'classnames/bind';
@@ -14,6 +14,7 @@ import {
 import { deleteObjectsItem, DispachObjectsType } from '../redux/objectsReducer';
 import { DispachType, putNewPrice } from '../redux/libReducer';
 import { AppStateType } from '../redux/store';
+import { useNavigate } from 'react-router-dom';
 
 let cx = classNames.bind(styles);
 
@@ -22,8 +23,11 @@ const ObjectsItem: React.FC<ObjectType> = (props: ObjectType) => {
   const dispachObject: DispachToObjectType = useDispatch();
   const dispachLib: DispachType = useDispatch();
   const lib = useSelector((state: AppStateType) => state.lib);
+  const navigate = useNavigate();
 
   const onLoadObject = (id: number) => {
+    // onSuccessLoad();
+    debugger;
     dispachObject(loadObjectFromServerThunk(id));
     props.items.forEach((item) => {
       let libItem = lib.filter((el) => {
@@ -32,10 +36,13 @@ const ObjectsItem: React.FC<ObjectType> = (props: ObjectType) => {
       dispachObject(changePriceInObject(item.price, libItem.name));
       dispachLib(putNewPrice(libItem.id, libItem.name, item.price, libItem.unit, libItem.category));
     });
+    (() => navigate('/new/'))();
   };
 
-  let [deletePopup, setDeletePopup] = React.useState(false);
+  let [deletePopup, setDeletePopup] = useState(false);
   const onDeleteItem = () => setDeletePopup(true);
+  // let [successLoad, setSuccessLoad] = useState(false);
+  // const onSuccessLoad = () => setSuccessLoad(true);
 
   type DeletePropsType = { id: number };
 
@@ -43,7 +50,7 @@ const ObjectsItem: React.FC<ObjectType> = (props: ObjectType) => {
     const onDeleteItemAccept = () => dispach(deleteObjectsItem(id));
     const onDeleteItemAbort = () => setDeletePopup(false);
     return (
-      <div className={cx('popup', { unvisible: !deletePopup })}>
+      <div className={cx('popup', { invisible: !deletePopup })}>
         <div>Удалить элемент, {props.name}?</div>
         <Button
           onClick={onDeleteItemAbort}
@@ -58,48 +65,6 @@ const ObjectsItem: React.FC<ObjectType> = (props: ObjectType) => {
       </div>
     );
   };
-
-  // let [viewObject, setViewObject] = React.useState(false);
-
-  // const MaterialsObjectResult = props.items.map((el: ObjectItemsType) => {
-  //   return el.category === 'material' ? (
-  //     <div key={el.name + el.id}>
-  //       <span className={styles.resultName}>{el.name}</span>: {el.price} руб * {el.count} {el.unit}{' '}
-  //       = {el.price * el.count} руб.
-  //     </div>
-  //   ) : null;
-  // });
-
-  // const WorksObjectResult = props.items.map((el: ObjectItemsType) => {
-  //   return el.category === 'work' ? (
-  //     <div key={el.name + el.id}>
-  //       <span className={styles.resultName}>{el.name}</span>: {el.price} руб * {el.count} {el.unit}{' '}
-  //       = {el.price * el.count} руб.
-  //     </div>
-  //   ) : null;
-  // });
-
-  // const Object: React.FC<ObjectType> = (props: ObjectType) => {
-  //   return (
-  //     <div className={cx('result', { unvisible: !viewObject })}>
-  //       <h2>{props.name}</h2>
-  //       <h3>
-  //         <b>Материалы:</b>
-  //       </h3>
-  //       <div className={styles.materials}>{MaterialsObjectResult}</div>
-  //       <h3>Итого по материалам: {props.priceMaterials} руб.</h3>
-  //       <h3>
-  //         <b>Работы:</b>
-  //       </h3>
-  //       <div className={styles.works}>{WorksObjectResult}</div>
-  //       <h3>Итого по работам: {props.priceWorks} руб.</h3>
-  //       <h2>
-  //         Всего: <span className={styles.sum}>{props.totalSum} руб.</span>
-  //       </h2>
-  //     </div>
-  //   );
-  // };
-
   return (
     <>
       <div className={styles.items}>
@@ -117,7 +82,7 @@ const ObjectsItem: React.FC<ObjectType> = (props: ObjectType) => {
         />
       </div>
       <DeleteMessage id={props.id} />
-      {/* <Object {...props} /> */}
+      {/* <div className={cx('successLoad', { invisible: !successLoad })}>загружен</div> */}
     </>
   );
 };

@@ -48,7 +48,7 @@
     },
     {
       "name": "Копка траншеи",
-      "price": 1499,
+      "price": 1500,
       "unit": "м",
       "category": "work",
       "id": 8
@@ -212,6 +212,55 @@
       "priceMaterials": 0,
       "priceWorks": 15000,
       "totalSum": 15000
+    },
+    {
+      "id": 4,
+      "name": "123",
+      "items": [
+        {
+          "id": 1,
+          "name": "Кольцо 1м",
+          "price": 1000,
+          "unit": "шт",
+          "category": "material",
+          "count": 4
+        },
+        {
+          "id": 3,
+          "name": "Кольцо 2м",
+          "price": 3000,
+          "unit": "шт",
+          "category": "material",
+          "count": 3
+        },
+        {
+          "id": 4,
+          "name": "Копка кольца 1м",
+          "price": 2000,
+          "unit": "шт",
+          "category": "work",
+          "count": 4
+        },
+        {
+          "id": 7,
+          "name": "Копка кольца 2м",
+          "price": 6500,
+          "unit": "шт",
+          "category": "work",
+          "count": 6
+        }
+      ],
+      "priceMaterials": 13000,
+      "priceWorks": 47000,
+      "totalSum": 60000
+    },
+    {
+      "id": 5,
+      "name": "Новый объект",
+      "items": [],
+      "priceMaterials": 0,
+      "priceWorks": 0,
+      "totalSum": 0
     }
   ]
 }

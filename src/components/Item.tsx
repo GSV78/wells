@@ -22,7 +22,7 @@ const Item: React.FC<LibItemType> = (props: LibItemType) => {
     const onDeleteItemAbort = () => setDeletePopup(false);
 
     return (
-      <div className={cx('popup', { unvisible: !deletePopup })}>
+      <div className={cx('popup', { invisible: !deletePopup })}>
         <div>Удалить элемент, {props.name}?</div>
         <Button
           onClick={onDeleteItemAbort}

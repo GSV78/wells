@@ -1,12 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { ObjectItemsType } from '../redux/objectReducer';
+import { ObjectItemsType, ObjectType } from '../redux/objectReducer';
 import { AppStateType } from '../redux/store';
-import styles from '../pages/New.module.css';
+import styles from './Result.module.css';
 
 function Result() {
-  debugger;
-  const object = useSelector((state: AppStateType) => state.object);
+  const object: ObjectType = useSelector((state: AppStateType) => state.object);
   const materialsOnObject =
     object.items && object.items.filter((el: ObjectItemsType) => el.category === 'material');
   const worksOnObject =

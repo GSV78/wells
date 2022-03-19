@@ -31,6 +31,7 @@ h2 {
   border: 1px dotted;
   margin-right: 2px;
   padding: 0 4px;
+  cursor: pointer;
 }
 
 .price {
@@ -59,11 +60,16 @@ h2 {
   margin-bottom: 25px;
 }
 
-.unvisible {
-  display: none;
-}
-
 .buttonPopup {
   margin: 0 30px;
   width: 70px;
+}
+
+.successLoad {
+  display: block;
+  color: yellowgreen;
+}
+
+.invisible {
+  display: none;
 }
