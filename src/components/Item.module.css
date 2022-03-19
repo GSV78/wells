@@ -67,7 +67,13 @@ h2 {
 
 .successLoad {
   display: block;
+  margin-left: 15px;
   color: yellowgreen;
+}
+
+.loadButton {
+  margin-left: 10px;
+  border-radius: 3px;
 }
 
 .invisible {

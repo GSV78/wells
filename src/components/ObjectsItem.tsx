@@ -14,6 +14,7 @@ import {
 import { deleteObjectsItem, DispachObjectsType } from '../redux/objectsReducer';
 import { DispachType, putNewPrice } from '../redux/libReducer';
 import { AppStateType } from '../redux/store';
+import { useNavigate } from 'react-router-dom';
 
 let cx = classNames.bind(styles);
 
@@ -62,6 +63,14 @@ const ObjectsItem: React.FC<ObjectType> = (props: ObjectType) => {
       </div>
     );
   };
+
+  const navigate = useNavigate();
+  const onLink = () => {
+    navigate('/new/');
+  };
+  const onCancel = () => {
+    setSuccessLoad(false);
+  };
   return (
     <>
       <div className={styles.items}>
@@ -79,7 +88,15 @@ const ObjectsItem: React.FC<ObjectType> = (props: ObjectType) => {
         />
       </div>
       <DeleteMessage id={props.id} />
-      <div className={cx('successLoad', { invisible: !successLoad })}>загружен</div>
+      <div className={cx('successLoad', { invisible: !successLoad })}>
+        <div>Загружен, перейти к редактированию?</div>
+        <Button className={cx('loadButton')} type="primary" size="small" onClick={onLink}>
+          Да
+        </Button>
+        <Button className={cx('loadButton')} danger size="small" onClick={onCancel}>
+          Нет
+        </Button>
+      </div>
     </>
   );
 };
