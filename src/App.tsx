@@ -8,7 +8,7 @@ function App() {
   const isAuth = useSelector((state: AppStateType) => {
     return state.auth.isAuth;
   });
-  return isAuth ? <Start /> : <Auth />;
+  return true ? <Start /> : <Auth />; // заменить true на isAuth чтобы включить ввод пароля
 }
 
 export default App;

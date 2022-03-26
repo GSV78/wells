@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { LibItemType } from '../redux/libReducer';
-import { Typography } from 'antd';
+import { Tooltip, Typography } from 'antd';
 import style from './Item.module.css';
 import classNames from 'classnames/bind';
 import { useDispatch, useSelector } from 'react-redux';
@@ -48,15 +48,21 @@ const ObjectItem: React.FC<LibItemType> = (props: LibItemType) => {
       <Typography.Text italic strong className={style.objectName}>
         {props && props.name}{' '}
       </Typography.Text>
+
       <Price {...libItem} />
-      <input
-        className={style.newPrice}
-        type="number"
-        onChange={onChangeCount}
-        onBlur={onBlur}
-        value={count}
-      />
-      <Typography.Text className={style.price}>{props && props.price * count}</Typography.Text>
+
+      <Tooltip title="Количество">
+        <input
+          className={style.newPrice}
+          type="number"
+          onChange={onChangeCount}
+          onBlur={onBlur}
+          value={count}
+        />
+      </Tooltip>
+      <Tooltip title="Стоимость">
+        <Typography.Text className={style.price}>{props && props.price * count}</Typography.Text>
+      </Tooltip>
     </div>
   );
 };

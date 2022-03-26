@@ -52,6 +52,7 @@ h2 {
 
 .button {
   margin: 0 4px;
+  border-radius: 10px;
 }
 
 .popup {
@@ -63,6 +64,7 @@ h2 {
 .buttonPopup {
   margin: 0 30px;
   width: 70px;
+  border-radius: 10px;
 }
 
 .successLoad {
@@ -73,7 +75,7 @@ h2 {
 
 .loadButton {
   margin-left: 10px;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
 .invisible {

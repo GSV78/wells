@@ -1,7 +1,4 @@
 import { Dispatch } from 'react';
-import { ThunkAction } from 'redux-thunk';
-import { saveObjectToServer } from '../api/api';
-import { AppStateType } from './store';
 
 //action.types
 const AUTH_SUCCESS = 'wells/authReducer/auth_success';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { deleteItem, LibItemType, DispachType, putNewPrice } from '../redux/libReducer';
 import { DollarOutlined, DeleteOutlined, CheckCircleOutlined } from '@ant-design/icons';
-import { Button, Typography } from 'antd';
+import { Button, Tooltip, Typography } from 'antd';
 import style from './Item.module.css';
 import classNames from 'classnames/bind';
 import { useDispatch } from 'react-redux';
@@ -48,15 +48,17 @@ const Item: React.FC<LibItemType> = (props: LibItemType) => {
 
         <Typography.Text className={style.unit}> руб / {props && props.unit} </Typography.Text>
 
-        <Button
-          onClick={onDeleteItem}
-          className={style.button}
-          danger
-          type="ghost"
-          shape="circle"
-          icon={<DeleteOutlined />}
-          size="small"
-        />
+        <Tooltip title="Удалить">
+          <Button
+            onClick={onDeleteItem}
+            className={style.button}
+            danger
+            type="ghost"
+            shape="circle"
+            icon={<DeleteOutlined />}
+            size="small"
+          />
+        </Tooltip>
       </div>
       <DeleteMessage id={props.id} />
     </>

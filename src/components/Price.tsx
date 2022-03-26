@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { DispachType, LibItemType, putNewPrice } from '../redux/libReducer';
 import { DollarOutlined, CheckCircleOutlined } from '@ant-design/icons';
-import { Button, Typography } from 'antd';
+import { Button, Tooltip, Typography } from 'antd';
 import style from './Item.module.css';
 import { changePriceInObject, DispachToObjectType } from '../redux/objectReducer';
 
@@ -25,32 +25,38 @@ const Price: React.FC<LibItemType> = (props: LibItemType) => {
   ) => {
     setChangePriceMode(false);
     dispach(putNewPrice(id, name, newPrice, unit, category));
-    dispachObject(changePriceInObject(newPrice, name))
+    dispachObject(changePriceInObject(newPrice, name));
   };
   return (
     <div>
       {!changePriceMode ? (
         <>
-          <Button
-            onClick={onChangeMode}
-            className={style.button}
-            type="primary"
-            shape="circle"
-            icon={<DollarOutlined style={{ fontSize: '22px' }} />}
-            size="small"
-          />
-          <Typography.Text className={style.price}>{props && props.price}</Typography.Text>
+          <Tooltip title="Изменить цену">
+            <Button
+              onClick={onChangeMode}
+              className={style.button}
+              type="primary"
+              shape="circle"
+              icon={<DollarOutlined style={{ fontSize: '22px' }} />}
+              size="small"
+            />
+          </Tooltip>
+          <Tooltip title="Цена">
+            <Typography.Text className={style.price}>{props && props.price}</Typography.Text>
+          </Tooltip>
         </>
       ) : (
         <>
-          <Button
-            onClick={() => onNewPrice(props.id, props.name, newPrice, props.unit, props.category)}
-            className={style.button}
-            type="dashed"
-            shape="circle"
-            icon={<CheckCircleOutlined style={{ fontSize: '23px', color: 'green' }} />}
-            size="small"
-          />
+          <Tooltip title="Утвердить новую цену">
+            <Button
+              onClick={() => onNewPrice(props.id, props.name, newPrice, props.unit, props.category)}
+              className={style.button}
+              type="dashed"
+              shape="circle"
+              icon={<CheckCircleOutlined style={{ fontSize: '23px', color: 'green' }} />}
+              size="small"
+            />
+          </Tooltip>
           <input
             className={style.newPrice}
             type="number"

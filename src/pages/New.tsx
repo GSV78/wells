@@ -12,6 +12,7 @@ import {
   saveObjectToServerThunk,
 } from '../redux/objectReducer';
 import { AppStateType } from '../redux/store';
+import styles from './New.module.css';
 
 function New() {
   const dispatch: DispachToObjectType = useDispatch();
@@ -54,9 +55,9 @@ function New() {
         <div>{WorksObject}</div>
         <h3>Итого по работам: {object.priceWorks} рублей</h3>
         <h2>Всего: {object.totalSum} рублей</h2>
-        <h2>Имя объекта</h2>
-        <input type="text" onChange={onChangeName} value={objectName} />
-        <Button type="primary" onClick={onSaveObject}>
+        <h2>Имя объекта:</h2>
+        <input type="text" onChange={onChangeName} value={objectName} className={styles.name} />
+        <Button type="primary" onClick={onSaveObject} className={styles.button}>
           Сохранить
         </Button>
       </div>

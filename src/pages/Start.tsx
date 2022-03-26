@@ -24,14 +24,14 @@ function Start() {
       <Header className={styles.header}>
         <Menu selectable={false} theme="dark" mode="horizontal">
           <Menu.Item key={1}>
-            <Link to="/">{`С`}</Link>
+            <Link to="/">{`Справочник`}</Link>
           </Menu.Item>
           <Menu.Item key={2}>
             {' '}
-            <Link to="/new/">{`Н`}</Link>
+            <Link to="/new/">{`Объект`}</Link>
           </Menu.Item>
           <Menu.Item key={3}>
-            <Link to="/open/">{`А`}</Link>
+            <Link to="/open/">{`Архив`}</Link>
           </Menu.Item>
         </Menu>
       </Header>

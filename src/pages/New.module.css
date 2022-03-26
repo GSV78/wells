@@ -1,14 +1,6 @@
-.result {
-  width: fit-content;
-  margin-top: 40px;
-  border: 2px solid yellowgreen;
-  border-radius: 5%;
-  padding: 10px;
+.name {
+  margin: 0 10px;
 }
-.resultName {
-  font-weight: bold;
-}
-.materials,
-.works {
-  margin-left: 10px;
+.button {
+  border-radius: 10px;
 }
