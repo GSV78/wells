@@ -15,8 +15,10 @@ function Result() {
     materialsOnObject.map((el: ObjectItemsType) => {
       return (
         <div key={el.name + el.id}>
-          <span className={style.resultName}>{el.name}</span>: {el.price} руб * {el.count} {el.unit}{' '}
-          = {el.price * el.count} руб.
+          <span>
+            <b>{el.name}</b>
+          </span>
+          : {el.price} руб * {el.count} {el.unit} = {el.price * el.count} руб.
         </div>
       );
     });
@@ -26,8 +28,10 @@ function Result() {
     worksOnObject.map((el: ObjectItemsType) => {
       return (
         <div key={el.name + el.id}>
-          <span className={style.resultName}>{el.name}</span>: {el.price} руб * {el.count} {el.unit}{' '}
-          = {el.price * el.count} руб.
+          <span>
+            <b>{el.name}</b>
+          </span>
+          : {el.price} руб * {el.count} {el.unit} = {el.price * el.count} руб.
         </div>
       );
     });
