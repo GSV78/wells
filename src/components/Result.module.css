@@ -1,12 +1,12 @@
-.result {
+.resultName {
+  font-weight: bold;
+}
+.resultBox {
   width: fit-content;
   margin-top: 40px;
   border: 2px solid yellowgreen;
   border-radius: 5%;
   padding: 10px;
-}
-.resultName {
-  font-weight: bold;
 }
 .materials,
 .works {

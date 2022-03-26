@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { DispachObjectsType, getObjects } from '../redux/objectsReducer';
 import { AppStateType } from '../redux/store';
 import ObjectsItem from '../components/ObjectsItem';
+import styles from './Open.module.css';
 
 function Open() {
   const dispatch: DispachObjectsType = useDispatch();
@@ -18,7 +19,7 @@ function Open() {
     });
 
   return (
-    <div>
+    <div className={styles.archive}>
       <h2>Архив объектов:</h2>
       <div>{Objects}</div>
     </div>

@@ -26,13 +26,13 @@ function Result() {
     worksOnObject.map((el: ObjectItemsType) => {
       return (
         <div key={el.name + el.id}>
-          <span className={style.resultName}>{el.name}</span>: {el.price} руб * {el.count}{' '}
-          {el.unit} = {el.price * el.count} руб.
+          <span className={style.resultName}>{el.name}</span>: {el.price} руб * {el.count} {el.unit}{' '}
+          = {el.price * el.count} руб.
         </div>
       );
     });
   return (
-    <div className={style.result}>
+    <div className={style.resultBox}>
       <h2>Имя объекта: {object.name}</h2>
       <h2>Материалы:</h2>
       <div className={style.materials}>{MaterialsObjectResult}</div>
