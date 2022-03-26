@@ -32,19 +32,17 @@ function Result() {
       );
     });
   return (
-    <div>
-      <div className={styles.result}>
-        <h2>Имя объекта: {object.name}</h2>
-        <h2>Материалы:</h2>
-        <div className={styles.materials}>{MaterialsObjectResult}</div>
-        <h3>Итого по материалам: {object.priceMaterials} руб.</h3>
-        <h2>Работы:</h2>
-        <div className={styles.works}>{WorksObjectResult}</div>
-        <h3>Итого по работам: {object.priceWorks} руб.</h3>
-        <h2>
-          Всего: <span className={styles.sum}>{object.totalSum} руб.</span>
-        </h2>
-      </div>
+    <div className={styles.result}>
+      <h2>Имя объекта: {object.name}</h2>
+      <h2>Материалы:</h2>
+      <div className={styles.materials}>{MaterialsObjectResult}</div>
+      <h3>Итого по материалам: {object.priceMaterials} руб.</h3>
+      <h2>Работы:</h2>
+      <div className={styles.works}>{WorksObjectResult}</div>
+      <h3>Итого по работам: {object.priceWorks} руб.</h3>
+      <h2>
+        Всего: <span className={styles.sum}>{object.totalSum} руб.</span>
+      </h2>
     </div>
   );
 }
