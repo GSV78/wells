@@ -15,19 +15,19 @@ h2 {
 }
 
 .name {
-  width: 110px;
+  width: 210px;
   border: 1px dotted;
   margin-right: 2px;
   padding: 0 4px;
 }
 .objectName {
-  width: 100px;
+  width: 200px;
   border: 1px dotted;
   margin-right: 2px;
   padding: 0 4px;
 }
 .objectsName {
-  width: 240px;
+  width: 340px;
   border: 1px dotted;
   margin-right: 2px;
   padding: 0 4px;
@@ -81,3 +81,15 @@ h2 {
 .invisible {
   display: none;
 }
+
+@media (max-width: 480px) {
+  .name {
+    width: 110px;
+  }
+  .objectName {
+    width: 100px;
+  }
+  .objectsName {
+    width: 240px;
+  }
+} ;
